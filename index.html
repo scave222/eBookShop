@@ -126,12 +126,12 @@
         <% for (var k = 0; k < list.length; ++k) {
             var message = list[k];  %>
 
-                  <div class="col-md-4 pt-2">
+                  <div class="col-md-4 pt-2 mb-4">
                     <div class="card">
                       <div class="card-body">
                     <div class="book-cover">
                       <img id="<%=k%>"  src="<%= message.coverImgURL %>" onclick="showDetails(this.id)"  class="card-img images img-fluid"/>
-                      <%=message.read % 2 != 0 ? "Favourite" : ""%>
+                      <%=message.read % 2 != 0 ? "&#9734 &#9734 &#9734" : ""%>
                       <h3 class="name"><%= message.title %></h3> 
                       <h5 class="text"><%= message.yearPub %></h5> 
                       <span id="<%=k%>" class="btn btn-primary" id="btn" onclick="showDetails(this.id)">Details</span>
