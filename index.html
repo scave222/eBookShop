@@ -16,6 +16,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+            
           </nav>
         <div class="collapse" id="navbarToggleExternalContent">
           <div class="bg-dark p-4">
@@ -99,18 +100,32 @@
 
       <section class="container-fluid pt-2 imgbg">
         <h1 class="text-center">Available Books</h1>
+        <input type="text" placeholder="  search for books" class="search"><button class="search">search</button>
         <div class="row " id="bookRow" >
             
           
     
         </div>
     </section>
-
+  
+    
+    <div id="list">
+    </div>
+    <script id="template" type="text/ejs">
+    <% for (var k = 0; k < list.length; ++k) {
+        var message = list[k];  %>
+        <div class="message <%= message.status %>">
+            <p><span class="name"><%= message.name %></span>
+            <span class="date"><%= message.date %></span></p>
+            <p class="text"><%= message.text %></p>
+        </div>
+    <% } %>
+    </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/ejs_production.js"></script>
 <script type="text/javascript" src="js/example.js"></script>
-<script src="js/custom.js"></script>
+<!-- <script src="js/custom.js"></script> -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>

@@ -59,6 +59,7 @@ function addToELibrary() {
                 <h3 class="card-title">${booksArray[i].title}</h3>
                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Voluptates, culpa laborum!</p>
+                
                 <span class="btn btn-primary">Read Book</span>
                 <span class="btn btn-primary" onclick="deleteBook(${booksArray[i].pages})" >Delete Book</span>
             </div>
@@ -74,10 +75,16 @@ function validateInput() {
 	}
 	return true;
 }
+
+var template = new EJS({
+    text: $('#template').html()
+});
 function render() {
 	if (localStorage.getItem('books') != null) {
 		let booksArray = JSON.parse(localStorage.getItem('books'));
 		for (var i = 0; i < booksArray.length; i++) {
+
+            
 			bookRow.innerHTML += `<div class="col-md-4 mt-4 mb-2">
             <div class="card">
                 <div class="book-cover">
@@ -87,7 +94,10 @@ function render() {
                     <h3 class="card-title">${booksArray[i].title}</h3>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Voluptates, culpa laborum!</p>
-                    <span class="btn btn-primary">Read Book</span>
+
+                    
+
+                    <span class="btn btn-primary">Details</span>
                     <span class="btn btn-primary" onclick="deleteBook(${i})" >Delete Book</span>
                 </div>
             </div>
@@ -122,3 +132,13 @@ function deleteBook(bookID) {
 }
 
 
+
+// ${
+//     $('#bookRow').html(template.render({list:[
+//         { status: 'read',  name : 'John', date: '$120',
+//             text: 'just got back, how are you doing?' },
+//         { status: 'unread', name: 'Jenny', date: '$50',
+//             text: 'please call me asap' },
+//         { status: 'read',   name: 'Jack', date: '$80',
+//             text: 'where do you want to go today?' },
+//     ]}))}

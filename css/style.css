@@ -9,6 +9,8 @@
     font-style: italic;
     color: #999; }
 
+    .search{border-radius: 1px;}
+
     .my-services {
         background-image:linear-gradient( rgb(1, 15, 14), hsla(0, 22%, 87%, 0.829));
         background-size: cover;
