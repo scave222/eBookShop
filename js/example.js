@@ -108,7 +108,8 @@ function showDetails(boo){
 		`;
 		console.log(booksArray[boo].bookextract)
 
-		document.getElementById("show").style.display = 'block';
+        document.getElementById("show").style.display = 'block';
+       
 	}
 }
 
