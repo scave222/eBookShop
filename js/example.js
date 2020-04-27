@@ -1,12 +1,43 @@
-$("#addBtn").click(function (){
-	$("#bookModal").show();
-})
-$("#cancelBtn").click(function (){
-	$("#bookModal").hide();
-})
-$("#newBookBtn").click(function (){
-	addToELibrary();
-})
+// $("#addBtn").click(function (){
+// 	$("#bookModal").show();
+// })
+// $("#cancelBtn").click(function (){
+// 	$("#bookModal").hide();
+// })
+// $("#newBookBtn").click(function (){
+// 	addToELibrary();
+// })
+
+// elibrary
+const addBtn = document.getElementById('addBtn');
+const bookModal = document.getElementById('bookModal');
+const cancelBtn = document.querySelector('#cancelBtn');
+addBtn.addEventListener('click', showModal);
+// bookModal.addEventListener('click', hideModal)
+cancelBtn.addEventListener('click', hideModal);
+
+function showModal() {
+	bookModal.style.display = 'block';
+}
+function hideModal() {
+	bookModal.style.display = 'none';
+}
+// const elibrary = (function (){
+//     let library =[];
+//     let bookRow = null;
+//     function initialize(HTMLElement){
+//         bookRow = document.getElementById(HTMLElement)
+//     }
+// })();
+// get all element of interest
+const newBookBtn = document.getElementById('newBookBtn');
+const txtTitle = document.getElementById('txtTitle');
+const txtPub = document.getElementById('txtPub');
+const txtPubYear = document.getElementById('txtPubYear');
+const txtPages = document.getElementById('txtPages');
+const txtCoverURL = document.getElementById('txtCoverURL');
+const bookRow = document.getElementById('bookRow');
+newBookBtn.addEventListener('click', addToELibrary);
 
 
 // const bookRow = document.getElementById('bookRow');
