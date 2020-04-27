@@ -138,6 +138,23 @@ function deleteBook(bookID) {
 	}
 }
 
+function makeFavorite(bookID) {
+    console.log(bookID);
+    booksArray = JSON.parse(localStorage.getItem('books'));
+    for (let i = 0; i < booksArray.length; i++) {
+        if (i == bookID) {
+            booksArray[i].read += 1;
+            
+            console.log(booksArray[i].i);
+    
+            break;
+        }
+    }
+
+    localStorage.setItem('books', JSON.stringify(booksArray));
+    location.reload();
+}
+
 
         $(function() {
             var template = new EJS({

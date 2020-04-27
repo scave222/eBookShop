@@ -130,10 +130,12 @@
                     <div class="card">
                       <div class="card-body">
                     <div class="book-cover">
-                      <img src="<%= message.coverImgURL %>"  class="card-img images img-fluid"/>
+                      <img id="<%=k%>"  src="<%= message.coverImgURL %>" onclick="showDetails(this.id)"  class="card-img images img-fluid"/>
+                      <%=message.read % 2 != 0 ? "Favourite" : ""%>
                       <h3 class="name"><%= message.title %></h3> 
                       <h5 class="text"><%= message.yearPub %></h5> 
                       <span id="<%=k%>" class="btn btn-primary" id="btn" onclick="showDetails(this.id)">Details</span>
+                      <button class="all-buttons favoriteButton btn btn-primary " id="<%=k%>" onclick="makeFavorite(this.id)">Favourite</button>
                     <span id="<%=k%>" class="btn btn-primary" onclick="deleteBook(this.id)" >Delete Book</span>  
                  
                      </div>
