@@ -74,6 +74,7 @@ function validateInput() {
 	}
 	return true;
 }
+
 function render() {
 	if (localStorage.getItem('books') != null) {
 		let booksArray = JSON.parse(localStorage.getItem('books'));
@@ -97,6 +98,7 @@ function render() {
 		console.log('No books yet');
 	}
 }
+
 function saveBook(bookObj) {
 	let booksArray = [];
 	if (localStorage.getItem('books') == null) {
@@ -240,3 +242,28 @@ function deleteBook(bookID) {
 // </body>
 // </html>
 
+
+
+var template = new EJS({
+    text: $('#template').html()
+});
+function render() {
+	if (localStorage.getItem('books') != null) {
+		let booksArray = JSON.parse(localStorage.getItem('books'));
+		for (var i = 0; i < booksArray.length; i++) {
+
+            
+                      
+
+			
+        $('#bookRow').html(template.render({list:[
+            { status: 'read',   name: booksArray[i].title, image: booksArray[i].coverImgURL, text:booksArray[i].txtPubYear,
+                text: 'just got back, how are you doing?' },
+                
+
+        ]}));
+		}
+	} else {
+		console.log('No books yet');
+	}
+}

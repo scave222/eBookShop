@@ -79,7 +79,7 @@
                         id="txtCoverURL">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Price"
+                      <input type="number" class="form-control" placeholder="Price"
                       id="price">
                   </div>
         
@@ -100,27 +100,50 @@
 
       <section class="container-fluid pt-2 imgbg">
         <h1 class="text-center">Available Books</h1>
-        <input type="text" placeholder="  search for books" class="search"><button class="search">search</button>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+              <div id="show" ></div>
+          </div>
+          <div class="col-md-4"></div>
+      </div>
+        <input type="text" placeholder="  search for books" class="search mt-2"><button class="search">search</button>
         <div class="row " id="bookRow" >
             
           
     
         </div>
+        
     </section>
   
     
     <div id="list">
     </div>
-    <script id="template" type="text/ejs">
-    <% for (var k = 0; k < list.length; ++k) {
-        var message = list[k];  %>
-        <div class="message <%= message.status %>">
-            <p><span class="name"><%= message.name %></span>
-            <span class="date"><%= message.date %></span></p>
-            <p class="text"><%= message.text %></p>
-        </div>
-    <% } %>
-    </script>
+   
+
+      <script id="template" type="text/ejs">
+        
+        <% for (var k = 0; k < list.length; ++k) {
+            var message = list[k];  %>
+
+                  <div class="col-md-4 pt-2">
+                    <div class="card">
+                      <div class="card-body">
+                    <div class="book-cover">
+                      <img src="<%= message.coverImgURL %>"  class="card-img images img-fluid"/>
+                      <h3 class="name"><%= message.title %></h3> 
+                      <h5 class="text"><%= message.yearPub %></h5> 
+                      <p>Price:&#8358; <%= message.price %></p>
+                      <span id="<%=k%>" class="btn btn-primary" id="btn" onclick="showDetails(this.id)">Details</span>
+                    <span id="<%=k%>" class="btn btn-primary" onclick="deleteBook(this.id)" >Delete Book</span>  
+                 
+                     </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+        <% } %>
+        </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/ejs_production.js"></script>
@@ -130,4 +153,3 @@
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-
