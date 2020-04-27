@@ -12,13 +12,13 @@ $("#newBookBtn").click(function (){
 // const bookRow = document.getElementById('bookRow');
 // newBookBtn.addEventListener('click', addToELibrary);
 const elibrary = [];
-function Book(title, pub, pages, yearPub, coverImgURL, price) {
+function Book(title, pub, pages, yearPub, coverImgURL) {
 	this.title = title;
 	this.pub = pub;
 	this.pages = pages;
     this.yearPub = yearPub;
     this.coverImgURL = coverImgURL;
-    this.price = price;
+    
 	this.read = 0;
 }
 
@@ -28,10 +28,10 @@ function addToELibrary() {
 		let pub = txtPub.value;
 		let pages = txtPages.value;
         let coverImgURL = txtCoverURL.value;
-        let price = price.value;
+        
         let yearPub = txtPubYear.value;
         
-		let book = new Book(title, pub, pages, yearPub, coverImgURL, price);
+		let book = new Book(title, pub, pages, yearPub, coverImgURL);
 		// elibrary.push(book);
 		saveBook(book);
 		location.reload();
@@ -69,7 +69,6 @@ function showDetails(boo){
         document.getElementById("show").innerHTML=`
         <h5 class="clas6">Title: <span>${booksArray[boo].title}</span></h5>
 		<h6 class="clas6">Publisher: <span>${booksArray[boo].pub}</span></h6>
-		<p>Price: <span>${booksArray[boo].price}</span></p>
 		<p>Year Published: <span>${booksArray[boo].yearPub}</span></p>
 		<p>Pages: <span>${booksArray[boo].pages}</span></p>
 		
@@ -150,14 +149,3 @@ function deleteBook(bookID) {
         });
         
    
-
-
-
-    // $('#bookRow').html(template.render({list:[
-    //     { status: 'read',  name : 'John', date: '$120',
-    //         text: 'just got back, how are you doing?' },
-    //     { status: 'unread', name: 'Jenny', date: '$50',
-    //         text: 'please call me asap' },
-    //     { status: 'read',   name: 'Jack', date: '$80',
-    //         text: 'where do you want to go today?' },
-    // ]}))

@@ -133,7 +133,6 @@
                       <img src="<%= message.coverImgURL %>"  class="card-img images img-fluid"/>
                       <h3 class="name"><%= message.title %></h3> 
                       <h5 class="text"><%= message.yearPub %></h5> 
-                      <p>Price:&#8358; <%= message.price %></p>
                       <span id="<%=k%>" class="btn btn-primary" id="btn" onclick="showDetails(this.id)">Details</span>
                     <span id="<%=k%>" class="btn btn-primary" onclick="deleteBook(this.id)" >Delete Book</span>  
                  
@@ -149,6 +148,8 @@
 <script type="text/javascript" src="js/ejs_production.js"></script>
 <script type="text/javascript" src="js/example.js"></script>
 <!-- <script src="js/custom.js"></script> -->
+<!-- 
+<p>Price:&#8358; <%= message.price %></p> -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
